@@ -11,6 +11,6 @@ class Snippet < ActiveRecord::Base
 
   def human_price
     return "Free" if price == 0
-    "฿ #{price}"
+    "<i class='fa fa-bitcoin'></i> #{price}".html_safe
   end
 end

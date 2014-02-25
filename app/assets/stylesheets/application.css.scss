@@ -8,8 +8,16 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require font-awesome
  *= require_self
  *= require_tree .
  */
+
+$brand-primary: #258768;
+$brand-success: #740073;
+$text-color: #353230;
+$font-family-sans-serif: "Lato", Helvetica, sans-serif;
+//$navbar-default-border: lighten($brand-primary, 10);
+$navbar-border-radius: 0px;
 
 @import "bootstrap";

@@ -1,4 +1,7 @@
-%h1 Listing snippets
+.text-center
+  %h1 A Marketplace for Code Snippets
+  %br
+  %br
 
 %table.table
   %tr
@@ -19,4 +22,4 @@
 
 %br
 
-= link_to 'New Snippet', new_snippet_path
+= link_to fa_icon(:plus, text: "New Snippet"), new_snippet_path, class: 'btn btn-primary'
