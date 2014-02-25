@@ -7,6 +7,9 @@
 %h3
   %b Price:
   = @snippet.human_price
+
+- unless @snippet.price == 0
+  = coinbase_button @snippet
 - unless @snippet.description.blank?
   .well
     %p
