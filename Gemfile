@@ -69,6 +69,7 @@ gem "has_scope"
 gem "font-awesome-rails"
 gem 'money-rails', github: 'RubyMoney/money-rails'
 gem "coderay", "~> 1.0.5"
+gem 'coinbase'
 group :test, :development do
   gem "rspec-rails"
   gem "factory_girl_rails"
