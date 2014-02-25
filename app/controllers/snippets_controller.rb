@@ -1,6 +1,5 @@
 class SnippetsController < ApplicationController
-  before_action :set_snippet, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:show, :index]
+  load_and_authorize_resource
 
   # GET /snippets
   # GET /snippets.json
@@ -63,14 +62,10 @@ class SnippetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_snippet
-      @snippet = Snippet.find(params[:id])
-    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def snippet_params
-      ap params
       params.require(:snippet).permit(:code, :title, :price, :language, :description)
     end
 end
