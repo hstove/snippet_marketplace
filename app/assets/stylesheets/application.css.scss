@@ -13,11 +13,11 @@
  *= require_tree .
  */
 
-$brand-primary: #258768;
-$brand-success: #740073;
-$text-color: #353230;
+$body-bg: whitesmoke;
+$brand-primary: #4ECDC4;
+$brand-success: darken(#C7F464,20);
+$text-color: #556270;
 $font-family-sans-serif: "Lato", Helvetica, sans-serif;
-//$navbar-default-border: lighten($brand-primary, 10);
 $navbar-border-radius: 0px;
 
 @import "bootstrap";
