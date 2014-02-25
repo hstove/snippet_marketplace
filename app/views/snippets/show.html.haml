@@ -1,0 +1,16 @@
+%p#notice= notice
+
+%h1= @snippet.title
+%h4
+  By
+  = @snippet.user.email
+%p
+  %b Code:
+  = @snippet.code
+%p
+  %b Price:
+  = @snippet.price
+
+= link_to 'Edit', edit_snippet_path(@snippet)
+\|
+= link_to 'Back', snippets_path

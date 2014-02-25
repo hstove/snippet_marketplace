@@ -1,0 +1,16 @@
+= form_for @snippet, html: { class: "form-horizontal" } do |f|
+  - if @snippet.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@snippet.errors.count, "error")} prohibited this snippet from being saved:"
+      %ul
+        - @snippet.errors.full_messages.each do |msg|
+          %li= msg
+  = form_element f, :title, :text_field
+  = form_element f, :code, :text_area
+  = form_element f, :price, :text_field
+
+  = form_element f, :language, :text_field
+  = form_element f, :description, :text_area
+
+  .actions
+    = f.submit (@snippet.new_record? ? 'Create' : 'Update'), class: 'btn btn-success'
