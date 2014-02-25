@@ -4,12 +4,10 @@
 %h4
   By
   = @snippet.user.email
-%p
-  %b Code:
-  = @snippet.code
-%p
+= @snippet.syntaxed_code
+%h4
   %b Price:
-  = @snippet.price
+  = @snippet.human_price
 
 = link_to 'Edit', edit_snippet_path(@snippet)
 \|
