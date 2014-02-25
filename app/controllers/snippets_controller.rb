@@ -1,10 +1,11 @@
 class SnippetsController < ApplicationController
   load_and_authorize_resource
 
+  has_scope :search
   # GET /snippets
   # GET /snippets.json
   def index
-    @snippets = Snippet.all
+    @snippets = apply_scopes(Snippet).all
   end
 
   # GET /snippets/1
