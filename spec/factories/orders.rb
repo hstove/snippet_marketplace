@@ -1,8 +1,9 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :user do
-    email
-    password "password"
+  factory :order do
+    snippet
+    user
+    amount 10
   end
 end
