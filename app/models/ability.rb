@@ -7,7 +7,6 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.is_admin
       can :manage, Snippet
-      can :create, Snippet
     end
     can :read, Snippet
     #   if user.admin?

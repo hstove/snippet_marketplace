@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :snippets
 
-  attr_accessible :email, :password
+  attr_accessible :email, :password, :is_admin, :password_confirmation
 end
