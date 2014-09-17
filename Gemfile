@@ -92,4 +92,5 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem "spring"
+  gem 'binding_of_caller'
 end
