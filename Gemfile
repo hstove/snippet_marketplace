@@ -91,4 +91,5 @@ group :test, :development do
   gem "quiet_assets"
   gem 'database_cleaner'
   gem 'shoulda-matchers'
+  gem "spring"
 end
