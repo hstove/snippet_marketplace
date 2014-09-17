@@ -93,4 +93,5 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem "spring"
   gem 'binding_of_caller'
+  gem 'bootstrap_form'
 end
