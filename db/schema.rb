@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225061038) do
+ActiveRecord::Schema.define(version: 20140917175053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,11 @@ ActiveRecord::Schema.define(version: 20140225061038) do
   create_table "snippets", force: true do |t|
     t.text     "code"
     t.string   "title"
+    t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "language"
     t.text     "description"
-    t.float    "price"
     t.integer  "user_id"
   end
 
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140225061038) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
