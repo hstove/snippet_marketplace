@@ -16,16 +16,19 @@ class SnippetsController < ApplicationController
   # GET /snippets/new
   def new
     @snippet = Snippet.new
+    authorize! :create, @snippet
   end
 
   # GET /snippets/1/edit
   def edit
+    authorize! :edit, @snippet
   end
 
   # POST /snippets
   # POST /snippets.json
   def create
     @snippet = current_user.snippets.new(snippet_params)
+    authorize! :create, @snippet
 
     respond_to do |format|
       if @snippet.save
@@ -41,6 +44,7 @@ class SnippetsController < ApplicationController
   # PATCH/PUT /snippets/1
   # PATCH/PUT /snippets/1.json
   def update
+    authorize! :update, @snippet
     respond_to do |format|
       if @snippet.update(snippet_params)
         format.html { redirect_to @snippet, notice: 'Snippet was successfully updated.' }
@@ -55,6 +59,7 @@ class SnippetsController < ApplicationController
   # DELETE /snippets/1
   # DELETE /snippets/1.json
   def destroy
+    authorize! :destroy, @snippet
     @snippet.destroy
     respond_to do |format|
       format.html { redirect_to snippets_url }

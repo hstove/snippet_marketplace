@@ -16,9 +16,10 @@
       %td= snippet.human_price
       %td= snippet.language
       %td
-        .btn-group
-          = link_to 'Edit', edit_snippet_path(snippet), class: 'btn btn-default btn-xs'
-          = link_to 'Destroy', snippet, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-default btn-xs'
+        - if can? :manage, @snippet
+          .btn-group
+            = link_to 'Edit', edit_snippet_path(snippet), class: 'btn btn-default btn-xs'
+            = link_to 'Destroy', snippet, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-default btn-xs'
 
 %br
 
