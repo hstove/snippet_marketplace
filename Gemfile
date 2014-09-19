@@ -94,4 +94,5 @@ group :test, :development do
   gem "spring"
   gem 'binding_of_caller'
   gem 'bootstrap_form'
+  gem "spring-commands-rspec"
 end
