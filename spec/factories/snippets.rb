@@ -2,8 +2,10 @@
 
 FactoryGirl.define do
   factory :snippet do
-    code "MyText"
-    title "MyString"
-    price 1.5
+    code FactoryGirl.generate(:lorem)
+    title
+    language FactoryGirl.generate(:title)
+    price 10
+    user
   end
 end
