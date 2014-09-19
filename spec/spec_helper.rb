@@ -20,6 +20,7 @@ Capybara.javascript_driver = :webkit
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Capybara::DSL
+  config.include Devise::TestHelpers, type: :controller
   # config.include CapybaraMacros
   # config.include MailerMacros
   # config.include SpecMacros
@@ -53,8 +54,3 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
-
-
-
-
-
