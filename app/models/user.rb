@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :snippets
+  has_many :orders
 
   attr_accessible :email, :password, :is_admin, :password_confirmation
 end

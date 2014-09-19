@@ -1,4 +1,6 @@
 SnippetMarketplace::Application.routes.draw do
+  resources :orders
+
   resources :snippets
 
   devise_for :users

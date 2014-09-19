@@ -93,6 +93,7 @@ group :test, :development do
   gem "quiet_assets"
   gem 'database_cleaner'
   gem 'shoulda-matchers'
+  gem "spring-commands-rspec"
   gem "spring"
   gem 'binding_of_caller'
   gem 'bootstrap_form'

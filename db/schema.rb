@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140917175053) do
+ActiveRecord::Schema.define(version: 20140919175325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20140917175053) do
     t.text     "error_message"
     t.text     "error_backtrace"
     t.datetime "completed_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
+    t.integer  "snippet_id"
+    t.integer  "user_id"
+    t.float    "amount"
+    t.float    "usd_amount"
+    t.string   "coinbase_id"
+    t.string   "coinbase_code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

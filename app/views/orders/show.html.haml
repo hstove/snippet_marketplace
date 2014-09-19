@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Snippet:
+  = @order.snippet_id
+%p
+  %b User:
+  = @order.user_id
+%p
+  %b Amount:
+  = @order.amount
+%p
+  %b Usd amount:
+  = @order.usd_amount
+%p
+  %b Coinbase:
+  = @order.coinbase_id
+%p
+  %b Coinbase code:
+  = @order.coinbase_code
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path
