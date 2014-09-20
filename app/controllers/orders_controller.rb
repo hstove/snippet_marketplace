@@ -12,53 +12,19 @@ class OrdersController < ApplicationController
   def show
   end
 
-  # GET /orders/new
-  def new
-    @order = Order.new
-  end
-
-  # GET /orders/1/edit
-  def edit
-  end
-
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
-
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @order }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /orders/1
-  # PATCH/PUT /orders/1.json
-  def update
-    respond_to do |format|
-      if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /orders/1
-  # DELETE /orders/1.json
-  def destroy
-    @order.destroy
-    respond_to do |format|
-      format.html { redirect_to orders_url }
-      format.json { head :no_content }
-    end
+    keys = params[:order][:custom].split("-")
+    order = Order.new
+    order.snippet_id = keys[1]
+    order.user_id = keys[0]
+    order.usd_amount = params[:order][:total_native][:cents].to_i / 100
+    order.coinbase_id = params[:order][:id]
+    order.coinbase_code = params[:order][:button][:id]
+    order.amount = params[:order][:total_btc][:cents].to_f / 100000000.0
+    order.save!
+    render nothing: true, status: 200
   end
 
   private
