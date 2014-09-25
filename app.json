@@ -10,5 +10,8 @@
     ],
     "scripts": {
         "postdeploy": "bundle exec rake db:reset"
+    },
+    "env": {
+        "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-ruby"
     }
 }
