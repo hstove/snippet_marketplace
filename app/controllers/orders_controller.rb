@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :validate_secret, only: [:create]
 
   # GET /orders
   # GET /orders.json
@@ -36,5 +37,11 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:snippet_id, :user_id, :amount, :usd_amount, :coinbase_id, :coinbase_code)
+    end
+
+    def validate_secret
+      if params[:secret] != ENV['CALLBACK_SECRET']
+        render nothing: true, status: 401
+      end
     end
 end

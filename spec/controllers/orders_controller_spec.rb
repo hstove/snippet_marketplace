@@ -43,20 +43,26 @@ describe OrdersController do
         }
       }
     }
+    let(:params_with_secret) { params.merge secret: ENV['CALLBACK_SECRET'] }
 
     it "returns 200" do
-      post :create, params
+      post :create, params_with_secret
       response.should be_success
     end
 
     it "creates a new order when it should" do
-      post :create, params
+      post :create, params_with_secret
       order = user.orders.reload.find{|o| o.snippet_id == snippet.id }
       order.should_not be_nil
       order.usd_amount.should eql(10.0)
       order.coinbase_id.should eql("5RTQNACF")
       order.coinbase_code.should eql("5d37a3b61914d6d0ad15b5135d80c19f")
       order.amount.should eql(1.015)
+    end
+
+    it "returns 401 without secret" do
+      post :create, params
+      expect(response.status).to eql(401)
     end
   end
 end
