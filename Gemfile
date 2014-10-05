@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'dotenv-rails', group: [:development, :test]
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -95,5 +97,4 @@ group :test, :development do
   gem 'binding_of_caller'
   gem 'bootstrap_form'
   gem "spring-commands-rspec"
-  gem 'dotenv-rails'
 end
